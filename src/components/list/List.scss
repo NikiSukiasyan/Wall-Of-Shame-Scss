@@ -1,0 +1,44 @@
+.user-container {
+    display: flex;
+    gap: 295px;
+    margin-left: 53px;
+    margin-top: 27px;
+    align-items: center;
+    position: relative;
+
+    button {
+        position: absolute;
+        right: 58px;
+    }
+    p {
+        font-size: 14px;
+        font-family: "Poppins";
+        font-weight: 600px;
+        color: rgba(70, 78, 95, 1);
+    }
+    span {
+        font-size: 13px;
+        color: rgba(181, 181, 195, 1);
+        font-family: "Poppins";
+        font-weight: 500;
+        position: absolute;
+        left: 390px
+     }
+    
+    button {
+        width: 92px;
+        height: 34px;
+        border: 0px;
+        border-radius: 6px;
+        background-color: rgba(201, 247, 245, 1);
+        color: rgba(27, 197, 189, 1);
+        font-family: "Poppins";
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .count {
+        position: absolute;
+        left: 1152px;
+        }
+}

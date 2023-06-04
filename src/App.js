@@ -1,24 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/header/Header";
+import List from "./components/list/List";
+import Excuse from "./components/excuse/Excuse";
 
 function App() {
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      name: "Brad Simmons",
+      excuse:
+        "Remember when you were young you shone like the sun. Shine on you",
+      count: 3,
+    },
+    {
+      id: 2,
+      name: "Brad Simmons",
+      excuse:
+        "Remember when you were young you shone like the sun. Shine on you",
+      count: 1,
+    },
+  ]);
+
+  const addUser = (name, excuse) => {
+    const newUser = {
+      id: users.length + 1,
+      name: name,
+      excuse: excuse,
+      count: 0,
+    };
+    setUsers([...users, newUser]);
+  };
+
+  const increaseCount = (userId) => {
+    const updatedUsers = users.map((user) => {
+      if (user.id === userId) {
+        return {
+          ...user,
+          count: user.count + 1,
+        };
+      }
+      return user;
+    });
+
+    setUsers(updatedUsers);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header addUser={addUser} users={users} />
+      <Excuse />
+      <List users={users} increaseCount={increaseCount} />
+    </>
   );
 }
 
